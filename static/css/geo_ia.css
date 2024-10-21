@@ -1,212 +1,143 @@
-Estilos para la animación de GEO_IA que entra desde la derecha
+/* Estilos para `GEO_IA` */
+.movimiento_GEO_IA_Izq,
 .movimiento_GEO_IA_Der {
   position: absolute;
-  /* Posiciona el elemento de forma absoluta en la página */
-  bottom: 10px;
-  /* Ubica el elemento a 10px del borde inferior */
-  left: 0;
-  /* Coloca el elemento en el extremo izquierdo horizontalmente */
-  width: 300px;
-  /* Establece el ancho de la imagen */
-  animation: moverYDesvanecer_Der 10s forwards;
-  /* Aplica la animación definida más abajo */
+  bottom: 5vh;
+  width: 15vw;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
   z-index: 2;
-  /* Coloca el elemento por encima de otros con menor z-index */
 }
 
-/* Animación para GEO_IA entrando desde la derecha */
-@keyframes moverYDesvanecer_Der {
-  0% {
-    opacity: 0;
-    /* Inicialmente invisible */
-    transform: translateX(100vw);
-    /* Comienza fuera de la pantalla a la derecha */
-  }
-
-  65% {
-    opacity: 0;
-    /* Permanece invisible hasta el 65% del tiempo de animación */
-    transform: translateX(100vw);
-    /* Sigue fuera de la pantalla */
-  }
-
-  75% {
-    opacity: 1;
-    /* Aparece repentinamente */
-    transform: translateX(calc(100vw - 300px));
-    /* Se posiciona dentro de la pantalla en su lugar final */
-  }
-
-  100% {
-    opacity: 1;
-    /* Permanece visible */
-    transform: translateX(calc(100vw - 300px));
-    /* Mantiene su posición final */
-  }
-}
-
-/* Estilos para el globo de diálogo derecho */
-.movimiento_globoDialogo_Der {
-  position: absolute;
-  /* Posiciona el elemento de forma absoluta */
-  bottom: 10px;
-  /* Ubica el elemento a 10px del borde inferior */
-  left: 0;
-  /* Coloca el elemento en el extremo izquierdo */
-  width: 300px;
-  /* Establece el ancho del globo de diálogo */
-  animation: moverYDesvanecer_globoDialogo_Der 10s forwards;
-  /* Aplica la animación definida más abajo */
-  transform-origin: bottom right;
-  /* Establece el punto de origen de las transformaciones */
-  z-index: 1;
-  /* Coloca el globo detrás de GEO_IA */
-}
-
-/* Animación para el globo de diálogo derecho */
-@keyframes moverYDesvanecer_globoDialogo_Der {
-  0% {
-    opacity: 0;
-    /* Inicialmente invisible */
-    transform: translateX(100vw) scale(0);
-    /* Comienza fuera de la pantalla a la derecha y escalado a 0 */
-  }
-
-  70% {
-    opacity: 0;
-    /* Permanece invisible hasta el 70% del tiempo */
-    transform: translateX(100vw) scale(0);
-    /* Sigue fuera de la pantalla y escalado a 0 */
-  }
-
-  80% {
-    opacity: 1;
-    /* Aparece repentinamente */
-    transform: translateX(calc(100vw - 300px)) scale(1);
-    /* Entra en la pantalla y escala a tamaño completo */
-  }
-
-  100% {
-    opacity: 1;
-    /* Permanece visible */
-    transform: translateX(calc(100vw - 300px)) scale(1);
-    /* Mantiene su posición y tamaño final */
-  }
-}
-
-/* Estilos para la animación de GEO_IA que entra desde la izquierda */
 .movimiento_GEO_IA_Izq {
-  position: absolute;
-  /* Posiciona el elemento de forma absoluta en la página */
-  bottom: 10px;
-  /* Ubica el elemento a 10px del borde inferior */
   left: 0;
-  /* Coloca el elemento en el extremo izquierdo horizontalmente */
-  width: 300px;
-  /* Establece el ancho de la imagen */
-  animation: moverYDesvanecer_Izq 10s forwards;
-  /* Aplica la animación definida más abajo */
-  z-index: 2;
-  /* Coloca el elemento por encima del globo de diálogo */
+  animation-name: moverYDesvanecer_Izq;
 }
 
-/* Animación para GEO_IA entrando desde la izquierda */
+.movimiento_GEO_IA_Der {
+  left: 0;
+  animation-name: moverYDesvanecer_Der;
+}
+
+/* animación para GEO_IA entrando desde la izquierda */
 @keyframes moverYDesvanecer_Izq {
   0% {
     opacity: 1;
-    /* Comienza visible */
-    transform: translateX(-300px);
-    /* Comienza fuera de la pantalla a la izquierda */
+    transform: translateX(-100%);
   }
-
   20% {
     opacity: 1;
-    /* Permanece visible */
     transform: translateX(0);
-    /* Se mueve a su posición inicial dentro de la pantalla */
   }
-
   45% {
     opacity: 1;
-    /* Permanece visible en su posición */
     transform: translateX(0);
-    /* No hay movimiento */
   }
-
   50% {
     opacity: 0;
-    /* Desaparece */
-    transform: translateX(-300px);
-    /* Se mueve fuera de la pantalla hacia la izquierda */
+    transform: translateX(-100%);
   }
-
   100% {
     opacity: 0;
-    /* Permanece invisible */
-    transform: translateX(-300px);
-    /* Sigue fuera de la pantalla */
+    transform: translateX(-100%);
   }
 }
 
-/* Estilos para el globo de diálogo izquierdo */
-.movimiento_globoDialogo_Izq {
-  position: absolute;
-  /* Posiciona el elemento de forma absoluta */
-  bottom: 10px;
-  /* Ubica el elemento a 10px del borde inferior */
-  left: 0;
-  /* Coloca el elemento en el extremo izquierdo */
-  width: 300px;
-  /* Establece el ancho del globo de diálogo */
-  animation: moverYDesvanecer_globoDialogo_Izq 10s forwards;
-  /* Aplica la animación definida más abajo */
-  transform-origin: bottom left;
-  /* Establece el punto de origen de las transformaciones */
-  z-index: 1;
-  /* Coloca el globo detrás de GEO_IA */
+/* animación para GEO_IA entrando desde la derecha */
+@keyframes moverYDesvanecer_Der {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  60% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  65% {
+    opacity: 0;
+    transform: translateX(100vw);
+  }
+  85% {
+    opacity: 0;
+    transform: translateX(100vw);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(calc(100vw - 15vw));
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(calc(100vw - 15vw));
+  }
 }
 
-/* Animación para el globo de diálogo izquierdo */
+/* estilos para los globos de diálogo */
+.movimiento_globoDialogo_Izq,
+.movimiento_globoDialogo_Der {
+  position: absolute;
+  bottom: 5vh; 
+  width: 15vw;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  z-index: 1;
+}
+
+.movimiento_globoDialogo_Izq {
+  left: 0vw;
+  animation-name: moverYDesvanecer_globoDialogo_Izq;
+  transform-origin: bottom left;
+}
+
+.movimiento_globoDialogo_Der {
+  right: 0vw;
+  animation-name: moverYDesvanecer_globoDialogo_Der;
+  transform-origin: bottom right;
+}
+
+/* animación para el globo de diálogo izquierdo */
 @keyframes moverYDesvanecer_globoDialogo_Izq {
   0% {
     opacity: 0;
-    /* Inicialmente invisible */
-    transform: translateX(-300px) scale(0);
-    /* Comienza fuera de la pantalla a la izquierda y escalado a 0 */
+    transform: translateX(-100%) scale(0);
   }
-
   10% {
     opacity: 0;
-    /* Permanece invisible hasta el 10% del tiempo */
-    transform: translateX(-300px) scale(0);
-    /* Sigue fuera de la pantalla y escalado a 0 */
+    transform: translateX(-100%) scale(0);
   }
-
   15% {
     opacity: 1;
-    /* Aparece repentinamente */
     transform: translateX(0) scale(1);
-    /* Entra en la pantalla y escala a tamaño completo */
   }
-
   40% {
     opacity: 1;
-    /* Permanece visible */
     transform: translateX(0) scale(1);
-    /* Mantiene su posición y tamaño */
   }
-
   45% {
     opacity: 0;
-    /* Desaparece */
-    transform: translateX(-300px) scale(0);
-    /* Sale de la pantalla hacia la izquierda y escala a 0 */
+    transform: translateX(-100%) scale(0);
   }
-
   100% {
     opacity: 0;
-    /* Permanece invisible */
-    transform: translateX(-300px) scale(0);
-    /* Sigue fuera de la pantalla */
+    transform: translateX(-100%) scale(0);
+  }
+}
+
+/* animación para el globo de diálogo derecho */
+@keyframes moverYDesvanecer_globoDialogo_Der {
+  0% {
+    opacity: 0;
+    transform: translateX(100%) scale(0);
+  }
+  90% {
+    opacity: 0;
+    transform: translateX(100%) scale(0);
+  }
+  95% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
   }
 }

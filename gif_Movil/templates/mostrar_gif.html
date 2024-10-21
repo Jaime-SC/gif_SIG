@@ -1,131 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Animación con Huellas y GEO_IA</title>
+<head>
+  <meta charset="UTF-8" />
+  <title>Animación con Huellas y GEO_IA</title>
 
-    {% load static %} <!-- Carga la etiqueta 'static' de Django para gestionar archivos estáticos -->
+  {% load static %}
 
-    <!-- Enlace al archivo CSS que contiene los estilos de las huellas -->
-    <link rel="stylesheet" href="{% static 'css/huellas.css' %}" />
+  <!-- CSS que contiene los estilos de las huellas -->
+  <link rel="stylesheet" href="{% static 'css/huellas.css' %}" />
 
-    <!-- Enlace al archivo CSS que controla la animación y los estilos de GEO_IA -->
-    <link rel="stylesheet" href="{% static 'css/geo_ia.css' %}" />
+  <!-- CSS que controla la animación y los estilos de GEO_IA -->
+  <link rel="stylesheet" href="{% static 'css/geo_ia.css' %}" />
 
-    <style>
-      /* Configuración del estilo global del cuerpo para evitar scroll y márgenes */
-      body {
-        margin: 0;
-        overflow: hidden;
-      }
-    </style>
-  </head>
+  <style>
+    /* configuración del estilo global para evitar scroll y márgenes */
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
 
-  <body>
-    {% load static %} <!-- Se vuelve a cargar la etiqueta 'static' para asegurar que se puedan utilizar archivos estáticos dentro del cuerpo -->
+<body>
+  <!-- GEO_IA moviéndose desde la izquierda -->
+  <img class="movimiento_GEO_IA_Izq" src="{% static 'gif_Movil/images/GEO_IA_Izq.gif' %}" alt="GEO IA Izquierda" />
 
-    <!-- Imagen animada de GEO_IA moviéndose desde la izquierda -->
-    <img class="movimiento_GEO_IA_Izq" src="{% static 'gif_Movil/images/GEO_IA_Izq.gif' %}" alt="GEO IA" />
+  <!-- GEO_IA moviéndose desde la derecha -->
+  <img class="movimiento_GEO_IA_Der" src="{% static 'gif_Movil/images/GEO_IA_Der.gif' %}" alt="GEO IA Derecha" />
 
-    <!-- Imagen animada de GEO_IA moviéndose desde la derecha -->
-    <img class="movimiento_GEO_IA_Der" src="{% static 'gif_Movil/images/GEO_IA_Der.gif' %}" alt="GEO IA" />
+  <!-- globo de diálogo que aparece en la parte izquierda -->
+  <img class="movimiento_globoDialogo_Izq" src="{% static 'gif_Movil/images/globoDialogo_Izq.gif' %}" alt="Globo Diálogo Izquierda" />
 
-    <!-- Globo de diálogo que aparece en la parte izquierda de la pantalla -->
-    <img class="movimiento_globoDialogo_Izq" src="{% static 'gif_Movil/images/globoDialogo_Izq.gif' %}" alt="GLOBO IA Izquierda" />
+  <!-- globo de diálogo que aparece en la parte derecha -->
+  <img class="movimiento_globoDialogo_Der" src="{% static 'gif_Movil/images/globoDialogo_Der.gif' %}" alt="Globo Diálogo Derecha" />
 
-    <!-- Globo de diálogo que aparece en la parte derecha de la pantalla -->
-    <img class="movimiento_globoDialogo_Der" src="{% static 'gif_Movil/images/globoDialogo_Der.gif' %}" alt="GLOBO IA Derecha" />
+  <!-- contenedor para las huellas -->
+  <div id="huellas-container" data-static-url="{% static 'gif_Movil/images/' %}"></div>
 
-    <!-- Contenedor para las huellas de pasos -->
-    <div>
-      <!-- Cada imagen de huella se alterna entre izquierda y derecha para simular los pasos -->
-
-      <!-- Huella 2 - Pie izquierdo -->
-      <img class="huella huella-2" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" />
-
-      <!-- Huella 3 - Pie derecho -->
-      <img class="huella huella-3" src="{% static 'gif_Movil/images/huellaDerecha.png' %}" alt="Huella Derecha" />
-
-      <!-- Huella 4 - Pie izquierdo -->
-      <img class="huella huella-4" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" />
-
-      <!-- Huella 5 - Pie derecho -->
-      <img class="huella huella-5" src="{% static 'gif_Movil/images/huellaDerecha.png' %}" alt="Huella Derecha" />
-
-      <!-- Huella 6 - Pie izquierdo -->
-      <img class="huella huella-6" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" />
-
-      <!-- Huella 7 - Pie derecho -->
-      <img class="huella huella-7" src="{% static 'gif_Movil/images/huellaDerecha.png' %}" alt="Huella Derecha" />
-
-      <!-- Huella 8 - Pie izquierdo -->
-      <img class="huella huella-8" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" />
-
-      <!-- Huella 9 - Pie derecho -->
-      <img class="huella huella-9" src="{% static 'gif_Movil/images/huellaDerecha.png' %}" alt="Huella Derecha" />
-
-      <!-- Huella 10 - Pie izquierdo -->
-      <img class="huella huella-10" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" />
-
-      <!-- Huella 11 - Pie derecho -->
-      <img class="huella huella-11" src="{% static 'gif_Movil/images/huellaDerecha.png' %}" alt="Huella Derecha" />
-
-      <!-- Huella 12 - Pie izquierdo -->
-      <img class="huella huella-12" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" />
-
-      <!-- Huella 13 - Pie derecho -->
-      <img class="huella huella-13" src="{% static 'gif_Movil/images/huellaDerecha.png' %}" alt="Huella Derecha" />
-
-      <!-- Huella 14 - Pie izquierdo -->
-      <img class="huella huella-14" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" />
-
-      <!-- Huella 15 - Pie derecho -->
-      <img class="huella huella-15" src="{% static 'gif_Movil/images/huellaDerecha.png' %}" alt="Huella Derecha" />
-
-      <!-- Huella 16 - Pie izquierdo -->
-      <img class="huella huella-16" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" />
-
-      <!-- Huella 17 - Pie derecho -->
-      <img class="huella huella-17" src="{% static 'gif_Movil/images/huellaDerecha.png' %}" alt="Huella Derecha" />
-
-      <!-- Huella 18 - Pie izquierdo -->
-      <img class="huella huella-18" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" />
-
-      <!-- Huella 19 - Pie derecho -->
-      <img class="huella huella-19" src="{% static 'gif_Movil/images/huellaDerecha.png' %}" alt="Huella Derecha" />
-
-      <!-- Huella 20 - Pie izquierdo -->
-      <img class="huella huella-20" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" />
-
-      <!-- Huella 21 - Pie derecho -->
-      <img class="huella huella-21" src="{% static 'gif_Movil/images/huellaDerecha.png' %}" alt="Huella Derecha" />
-
-      {% comment %} <!-- Huella 22 - Pie izquierdo -->
-      <img class="huella huella-22" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" />
-
-      <!-- Huella 23 - Pie derecho -->
-      <img class="huella huella-23" src="{% static 'gif_Movil/images/huellaDerecha.png' %}" alt="Huella Derecha" />
-
-      <!-- Huella 24 - Pie izquierdo -->
-      <img class="huella huella-24" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" />
-
-      <!-- Huella 25 - Pie derecho -->
-      <img class="huella huella-25" src="{% static 'gif_Movil/images/huellaDerecha.png' %}" alt="Huella Derecha" />
-
-      <!-- Huella 26 - Pie izquierdo -->
-      <img class="huella huella-26" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" />
-
-      <!-- Huella 27 - Pie derecho -->
-      <img class="huella huella-27" src="{% static 'gif_Movil/images/huellaDerecha.png' %}" alt="Huella Derecha" />
-
-      <!-- Huella 28 - Pie izquierdo -->
-      <img class="huella huella-28" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" />
-
-      <!-- Huella 29 - Pie derecho -->
-      <img class="huella huella-29" src="{% static 'gif_Movil/images/huellaDerecha.png' %}" alt="Huella Derecha" />
-
-      <!-- Huella 30 - Pie izquierdo -->
-      <img class="huella huella-30" src="{% static 'gif_Movil/images/huellaIzquierda.png' %}" alt="Huella Izquierda" /> {% endcomment %}
-    </div>
-  </body>
+  <!-- generar las huellas dinámicamente -->
+  <script>
+    const huellasContainer = document.getElementById('huellas-container');
+    const staticUrl = huellasContainer.dataset.staticUrl; // URL base de las imágenes
+    const numHuellas = 19; // num de huellas a generar
+  
+    for (let i = 1; i <= numHuellas; i++) {
+      const img = document.createElement('img');
+      img.classList.add('huella');
+      img.style.setProperty('--i', i); // crear variable CSS para posición horizontal
+  
+      // determinar si es una huella izquierda o derecha
+      const isLeftFoot = i % 2 === 0;
+  
+      // asignar la imagen
+      const tipoHuella = isLeftFoot ? 'huellaIzquierda.png' : 'huellaDerecha.png';
+      img.src = staticUrl + tipoHuella;
+  
+      // añadir atributo alt
+      img.alt = isLeftFoot ? 'Huella Izquierda' : 'Huella Derecha';
+  
+      // altura de huellas segun '--offset-bottom' según si es pie izquierdo o derecho
+      const offsetBottom = isLeftFoot ? '8vh' : '5vh'; // Puedes ajustar estos valores
+      img.style.setProperty('--offset-bottom', offsetBottom);
+  
+      huellasContainer.appendChild(img);
+    }
+  </script>
+  
+</body>
 </html>
